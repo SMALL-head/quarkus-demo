@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.zyc.proto.service";
+option java_outer_classname = "UserServiceProto";
+
+package facade;
+
+service UserService {
+    rpc getRoleListById (UserMsg) returns (RoleListMsg) {}
+}
+
+message UserMsg {
+    optional int32 id = 1;
+    optional string username = 2;
+    optional string password = 3;
+    optional bool  enabled = 4;
+    optional bool accountNonExpired = 5;
+    optional bool accountNonLocked = 6;
+    optional bool credentialsNonExpired = 7;
+}
+
+message RoleListMsg {
+    repeated RoleMsg role = 1;
+}
+
+message RoleMsg {
+    optional int32 id = 1;
+    optional string name = 2;
+    optional string nameZh = 3;
+}
+

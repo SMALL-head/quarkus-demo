@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyc.mapper.UserMapper">
+    <select id="loadByUsername" resultType="com.zyc.entity.User">
+        select id, username, password,enabled,account_non_expired,account_non_locked,credentials_non_expired
+        from spring_security.user
+        where username = #{username};
+    </select>
+    <select id="getRoleByUid" resultType="com.zyc.entity.Role">
+        select r.id id, r.name name, r.name_zh name_zh
+        from spring_security.role r inner join spring_security.user_role ur on r.id = ur.rid
+        where ur.uid = #{uid};
+    </select>
+</mapper>

@@ -38,4 +38,10 @@ public class UserServiceImpl implements UserService {
         RoleListMsg build = builder.build();
         return Uni.createFrom().item(build);
     }
+
+    @Override
+    public Uni<RoleMsg> simpleService(UserMsg userMsg) {
+        RoleMsg build = RoleMsg.newBuilder().setId(1).setName("name").setNameZh("namezh").build();
+        return Uni.createFrom().item(build);
+    }
 }

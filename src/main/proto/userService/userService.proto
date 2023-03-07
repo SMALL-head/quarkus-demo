@@ -8,6 +8,7 @@ package facade;
 
 service UserService {
     rpc getRoleListById (UserMsg) returns (RoleListMsg) {}
+    rpc simpleService(UserMsg) returns (RoleMsg) {}
 }
 
 message UserMsg {
